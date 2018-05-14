@@ -60,6 +60,8 @@ describe('service - weather', () => {
       });
 
       test('throws error', async () => {
+        expect.hasAssertions();
+
         try {
           await weather.current();
         }
@@ -67,8 +69,6 @@ describe('service - weather', () => {
         catch (error) {
           expect(error).toEqual(requestError);
         }
-
-        expect.hasAssertions();
       });
     });
   });

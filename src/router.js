@@ -1,18 +1,8 @@
-import Vue from 'vue';
+import home from '@/components/home.vue';
+import otherPage from '@/components/other-page.vue';
 import VueRouter from 'vue-router';
 
 
-
-// components:
-
-import home from '@/components/home.vue';
-import otherPage from '@/components/other-page.vue';
-
-
-
-// configure router:
-
-Vue.use(VueRouter);
 
 const router = new VueRouter({
   mode: 'history',

@@ -4,7 +4,7 @@ import autoFocus from '@/directives/auto-focus';
 
 
 
-// configuration:
+// directive setup:
 
 const component = {
   template: `

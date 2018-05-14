@@ -7,6 +7,7 @@ const Vue = jest.fn(() => {
 
 
 
+Vue.component = jest.fn();
 Vue.directive = jest.fn();
 Vue.filter = jest.fn();
 Vue.use = jest.fn();

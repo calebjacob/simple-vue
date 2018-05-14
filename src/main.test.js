@@ -6,79 +6,56 @@ import main from '@/main';
 
 // dependencies:
 
-import Vue from 'vue';
-import router from '@/router';
-
 import app from '@/components/app.vue';
-
-import autoFocus from '@/directives/auto-focus';
+import globals from '@/globals';
+import router from '@/router';
+import Vue from 'vue';
 
 
 
 // mocks:
 
-jest.mock('vue');
+jest.mock('@/globals', () => {
+  return {
+    initialize: jest.fn()
+  };
+});
 
 jest.mock('@/router', () => {
   return 'router config';
 });
 
-jest.mock('@/components/app.vue', () => {
-  return {
-    name: 'App'
-  };
-});
-
-jest.mock('@/directives/auto-focus', () => {
-  return {
-    name: 'AutoFocus'
-  };
-});
+jest.mock('vue');
 
 
 
 // tests:
 
 describe('main', () => {
-  describe('when global vue settings are configured', () => {
-    test('show production tip is set to false', () => {
-      expect(Vue.config.productionTip).toEqual(false);
-    });
+  test('show production tip is set to false', () => {
+    expect(Vue.config.productionTip).toEqual(false);
   });
 
-
-
-  // describe('when global components are initialized', () => {
-  // });
-
-
-
-  describe('when directives are initialized', () => {
-    test('autoFocus', () => {
-      expect(Vue.directive).toHaveBeenCalledWith('autoFocus', autoFocus);
-    });
+  test('global vue components, directives, and filters are initialized', () => {
+    expect(globals.initialize).toHaveBeenCalled();
   });
 
-
-
-  describe('when vue instance is created', () => {
-    test('instance is configured', () => {
-      const createElement = jest.fn(() => {
-        return 'created element';
-      });
-
-      expect(Vue.mock.calls[0]).toHaveLength(1);
-      expect(Vue.mock.calls[0][0].router).toEqual(router);
-      expect(Vue.mock.calls[0][0].render).toBeTruthy();
-
-      const renderResult = Vue.mock.calls[0][0].render(createElement);
-
-      expect(createElement).toHaveBeenCalledWith(app);
-      expect(renderResult).toEqual('created element');
+  test('instance is configured', () => {
+    const createElement = jest.fn(() => {
+      return 'created element';
     });
 
-    test('instance is exported', () => {
-      expect(main.name).toEqual('vue instance');
-    });
+    expect(Vue.mock.calls[0]).toHaveLength(1);
+    expect(Vue.mock.calls[0][0].router).toEqual(router);
+    expect(Vue.mock.calls[0][0].render).toBeTruthy();
+
+    const renderResult = Vue.mock.calls[0][0].render(createElement);
+
+    expect(createElement).toHaveBeenCalledWith(app);
+    expect(renderResult).toEqual('created element');
+  });
+
+  test('instance is exported', () => {
+    expect(main.name).toEqual('vue instance');
   });
 });

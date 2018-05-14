@@ -1,9 +1,7 @@
-import Vue from 'vue';
-import router from '@/router';
-
 import app from '@/components/app.vue';
-
-import autoFocus from '@/directives/auto-focus';
+import globals from '@/globals';
+import router from '@/router';
+import Vue from 'vue';
 
 
 
@@ -13,15 +11,9 @@ Vue.config.productionTip = false;
 
 
 
-// initialize global components:
+// initialize global vue components, directives, and filters:
 
-// ...
-
-
-
-// initialize directives:
-
-Vue.directive('autoFocus', autoFocus);
+globals.initialize(Vue);
 
 
 

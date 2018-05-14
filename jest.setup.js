@@ -1,6 +1,7 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
 import vueTestUtils from '@vue/test-utils';
+
+import globals from '@/globals';
 
 
 
@@ -9,9 +10,7 @@ jest.unmock('vue-router');
 
 jest.setTimeout(500);
 
-Vue.use(VueRouter);
-
-Vue.directive('autoFocus', {});
+globals.initialize(Vue);
 
 global.createLocalVue = vueTestUtils.createLocalVue;
 global.shallow = vueTestUtils.shallow;
