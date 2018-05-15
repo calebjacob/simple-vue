@@ -1,6 +1,6 @@
 const autoFocus = {
-  inserted(el) {
-    el.focus();
+  inserted(element) {
+    element.focus();
   }
 };
 

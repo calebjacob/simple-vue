@@ -26,6 +26,10 @@ module.exports = {
         maxEOF: 1
       }
     ],
+    'no-use-before-define': ['error', {
+        functions: false
+      }
+    ],
     'prefer-destructuring': ['off'],
 
     'jest/consistent-test-it': ['error', {
