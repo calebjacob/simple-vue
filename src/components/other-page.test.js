@@ -27,6 +27,10 @@ describe('components - otherPage', () => {
     expect(otherPage.name).toEqual('OtherPage');
   });
 
+  test('defaults model values', () => {
+    expect(otherPage.data().phone).toEqual(null);
+  });
+
   test('renders a view', () => {
     expect(wrapper.html().length).toBeGreaterThan(0);
   });

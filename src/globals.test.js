@@ -9,6 +9,7 @@ import globals from '@/globals';
 import autoFocus from '@/directives/auto-focus';
 import dropDown from '@/directives/drop-down';
 import entrapFocus from '@/directives/entrap-focus';
+import maskInput from '@/directives/mask-input';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
@@ -39,6 +40,10 @@ describe('globals', () => {
 
       test('entrapFocus', () => {
         expect(Vue.directive).toHaveBeenCalledWith('entrapFocus', entrapFocus);
+      });
+
+      test('maskInput', () => {
+        expect(Vue.directive).toHaveBeenCalledWith('maskInput', maskInput);
       });
     });
 

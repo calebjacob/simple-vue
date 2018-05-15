@@ -4,7 +4,7 @@
 
     <p>This is an example of another page. Exciting!</p>
 
-    <input type="text" name="test" v-auto-focus>
+    <input type="phone" name="test" placeholder="Phone number..." v-model="phone" v-auto-focus v-mask-input="'phone'">
   </div>
 </template>
 
@@ -12,6 +12,12 @@
 
 <script>
   export default {
-    name: 'OtherPage'
+    name: 'OtherPage',
+
+    data() {
+      return {
+        phone: null
+      };
+    }
   };
 </script>

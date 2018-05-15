@@ -26,6 +26,7 @@ module.exports = {
         maxEOF: 1
       }
     ],
+    'no-param-reassign': ['off'],
     'no-use-before-define': ['error', {
         functions: false
       }

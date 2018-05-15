@@ -41,7 +41,7 @@ describe('directive - dropDown', () => {
   beforeEach(() => {
     wrapper = createWrapper();
 
-    clickEvent = new MouseEvent('click');
+    clickEvent = new Event('click');
   });
 
   describe('when the drop down is clicked', () => {

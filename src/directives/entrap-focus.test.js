@@ -65,25 +65,25 @@ describe('directive - entrapFocus', () => {
 
 
   describe('when tabbing downwards', () => {
-    let event;
+    let keydownEvent;
 
     beforeEach(() => {
-      event = new Event('keydown');
-      event.keyCode = 9;
-      event.shiftKey = false;
+      keydownEvent = new Event('keydown');
+      keydownEvent.keyCode = 9;
+      keydownEvent.shiftKey = false;
 
       firstInput.focus.mockClear();
 
-      jest.spyOn(event, 'preventDefault');
+      jest.spyOn(keydownEvent, 'preventDefault');
     });
 
     describe('when currently focused in first input', () => {
       beforeEach(() => {
-        firstInput.dispatchEvent(event);
+        firstInput.dispatchEvent(keydownEvent);
       });
 
       test('does not preventDefault()', () => {
-        expect(event.preventDefault).toHaveBeenCalledTimes(0);
+        expect(keydownEvent.preventDefault).toHaveBeenCalledTimes(0);
       });
 
       test('does not focus last input', () => {
@@ -93,11 +93,11 @@ describe('directive - entrapFocus', () => {
 
     describe('when currently focused in last input', () => {
       beforeEach(() => {
-        lastInput.dispatchEvent(event);
+        lastInput.dispatchEvent(keydownEvent);
       });
 
       test('does preventDefault()', () => {
-        expect(event.preventDefault).toHaveBeenCalled();
+        expect(keydownEvent.preventDefault).toHaveBeenCalled();
       });
 
       test('focuses first input', () => {
@@ -109,25 +109,25 @@ describe('directive - entrapFocus', () => {
 
 
   describe('when tabbing upwards', () => {
-    let event;
+    let keydownEvent;
 
     beforeEach(() => {
-      event = new Event('keydown');
-      event.keyCode = 9;
-      event.shiftKey = true;
+      keydownEvent = new Event('keydown');
+      keydownEvent.keyCode = 9;
+      keydownEvent.shiftKey = true;
 
       firstInput.focus.mockClear();
 
-      jest.spyOn(event, 'preventDefault');
+      jest.spyOn(keydownEvent, 'preventDefault');
     });
 
     describe('when currently focused in first input', () => {
       beforeEach(() => {
-        firstInput.dispatchEvent(event);
+        firstInput.dispatchEvent(keydownEvent);
       });
 
       test('does preventDefault()', () => {
-        expect(event.preventDefault).toHaveBeenCalled();
+        expect(keydownEvent.preventDefault).toHaveBeenCalled();
       });
 
       test('focuses last input', () => {
@@ -137,11 +137,11 @@ describe('directive - entrapFocus', () => {
 
     describe('when currently focused in last input', () => {
       beforeEach(() => {
-        lastInput.dispatchEvent(event);
+        lastInput.dispatchEvent(keydownEvent);
       });
 
       test('does not preventDefault()', () => {
-        expect(event.preventDefault).toHaveBeenCalledTimes(0);
+        expect(keydownEvent.preventDefault).toHaveBeenCalledTimes(0);
       });
 
       test('does not focus first input', () => {
