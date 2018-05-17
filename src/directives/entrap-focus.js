@@ -6,7 +6,7 @@ const entrapFocus = {
 
     element.addEventListener('keydown', (event) => {
       if (event.keyCode === 9) {
-        const inputs = element.querySelectorAll('a, button, input, select, textarea, [tabindex]');
+        const inputs = element.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
         const firstInput = inputs[0];
         const lastInput = inputs[inputs.length - 1];
 

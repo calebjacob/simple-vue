@@ -7,9 +7,7 @@ import autoFocus from '@/directives/auto-focus';
 // directive setup:
 
 const component = {
-  template: `
-    <input type="text" v-auto-focus>
-  `
+  template: '<input type="text" v-auto-focus>'
 };
 
 const localVue = createLocalVue();

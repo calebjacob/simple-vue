@@ -16,7 +16,7 @@ function createWrapper() {
 
 // tests:
 
-describe('components - otherPage', () => {
+describe('component - otherPage', () => {
   let wrapper;
 
   beforeEach(() => {

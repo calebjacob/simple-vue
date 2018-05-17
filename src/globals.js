@@ -1,12 +1,18 @@
+import modal from '@/components/modal.vue';
+
 import autoFocus from '@/directives/auto-focus';
 import dropDown from '@/directives/drop-down';
 import entrapFocus from '@/directives/entrap-focus';
 import maskInput from '@/directives/mask-input';
+
+import modals from '@/mixins/modals';
+
 import VueRouter from 'vue-router';
 
 
 
-function components() {
+function components(Vue) {
+  Vue.component('modal', modal);
 }
 
 
@@ -25,6 +31,12 @@ function filters() {
 
 
 
+function mixins(Vue) {
+  Vue.mixin(modals);
+}
+
+
+
 function plugins(Vue) {
   Vue.use(VueRouter);
 }
@@ -36,6 +48,7 @@ const globals = {
     components(Vue);
     directives(Vue);
     filters(Vue);
+    mixins(Vue);
     plugins(Vue);
   }
 };

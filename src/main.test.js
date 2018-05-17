@@ -40,7 +40,7 @@ describe('main', () => {
     expect(globals.initialize).toHaveBeenCalled();
   });
 
-  test('instance is configured', () => {
+  test('vue instance is configured', () => {
     const createElement = jest.fn(() => {
       return 'created element';
     });
@@ -55,7 +55,7 @@ describe('main', () => {
     expect(renderResult).toEqual('created element');
   });
 
-  test('instance is exported', () => {
+  test('vue instance is exported', () => {
     expect(main.name).toEqual('vue instance');
   });
 });

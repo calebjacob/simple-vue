@@ -7,11 +7,7 @@ import app from '@/components/app.vue';
 // wrapper:
 
 function createWrapper() {
-  const wrapper = shallow(app, {
-    stubs: {
-      'router-view': true
-    }
-  });
+  const wrapper = shallow(app, {});
 
   return wrapper;
 }
@@ -20,7 +16,7 @@ function createWrapper() {
 
 // tests:
 
-describe('components - app', () => {
+describe('component - app', () => {
   let wrapper;
 
   beforeEach(() => {

@@ -6,10 +6,15 @@ import globals from '@/globals';
 
 // dependencies:
 
+import modal from '@/components/modal.vue';
+
 import autoFocus from '@/directives/auto-focus';
 import dropDown from '@/directives/drop-down';
 import entrapFocus from '@/directives/entrap-focus';
 import maskInput from '@/directives/mask-input';
+
+import modals from '@/mixins/modals';
+
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
@@ -29,6 +34,12 @@ describe('globals', () => {
       globals.initialize(Vue);
     });
 
+    describe('components are initialized', () => {
+      test('modal', () => {
+        expect(Vue.component).toHaveBeenCalledWith('modal', modal);
+      });
+    });
+
     describe('directives are initialized', () => {
       test('autoFocus', () => {
         expect(Vue.directive).toHaveBeenCalledWith('autoFocus', autoFocus);
@@ -44,6 +55,12 @@ describe('globals', () => {
 
       test('maskInput', () => {
         expect(Vue.directive).toHaveBeenCalledWith('maskInput', maskInput);
+      });
+    });
+
+    describe('mixins are initialized', () => {
+      test('modals', () => {
+        expect(Vue.mixin).toHaveBeenCalledWith(modals);
       });
     });
 

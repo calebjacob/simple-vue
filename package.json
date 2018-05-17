@@ -1,7 +1,11 @@
 {
-  "name": "my-project-2",
+  "name": "simple-vue",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamceege/simple-vue"
+  },
   "scripts": {
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",

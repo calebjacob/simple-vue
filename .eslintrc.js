@@ -11,6 +11,7 @@ module.exports = {
 
   globals: {
     createLocalVue: true,
+    mount: true,
     shallow: true
   },
 

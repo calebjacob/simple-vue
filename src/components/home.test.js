@@ -28,7 +28,7 @@ function createWrapper() {
 
 // tests:
 
-describe('components - home', () => {
+describe('component - home', () => {
   let wrapper;
 
   beforeEach(() => {

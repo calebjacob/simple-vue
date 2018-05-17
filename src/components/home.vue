@@ -16,7 +16,19 @@
 
     <p v-else-if="weatherFailedToLoad">Weather report has failed to load.</p>
 
-    <p v-else>Weather report for Lakewood, CO: {{ weather.temperature }} - {{ weather.description }}</p>
+    <p v-else>Weather report for Lakewood, CO: <b>{{ weather.temperature }}° - {{ weather.description }}</b></p>
+
+    <button class="button" type="button" @click="$openModal('example')">Open a Modal</button>
+
+    <modal name="example">
+      <h1>Hello!</h1>
+
+      <p>This is an example modal.</p>
+
+      <input class="text-input" type="test" name="test">
+
+      <button class="button" type="button" @click="$closeModal('example')">Ok</button>
+    </modal>
   </div>
 </template>
 
