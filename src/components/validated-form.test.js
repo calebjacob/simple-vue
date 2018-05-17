@@ -4,12 +4,6 @@ import validatedForm from '@/components/validated-form.vue';
 
 
 
-// dependencies:
-
-import events from '@/services/events';
-
-
-
 // mocks:
 
 const validSubmit = jest.fn();
@@ -89,7 +83,7 @@ describe('component - validatedForm', () => {
     });
   });
 
-  it('injects $validator', function() {
+  test('injects $validator', () => {
     expect(validatedForm.inject.$validator).toBeTruthy();
   });
 
@@ -285,19 +279,19 @@ describe('component - validatedForm', () => {
     });
   });
 
-  describe('methods.markFormAsDirty()', function() {
-    beforeEach(function() {
+  describe('methods.markFormAsDirty()', () => {
+    beforeEach(() => {
       wrapper.vm.dirty = false;
       wrapper.vm.markFormAsDirty();
     });
 
-    it('sets dirty to true', function() {
+    test('sets dirty to true', () => {
       expect(wrapper.vm.dirty).toEqual(true);
     });
   });
 
-  describe('methods.submit()', function() {
-    let submitEvent = {};
+  describe('methods.submit()', () => {
+    const submitEvent = {};
 
     beforeEach(() => {
       submitEvent.preventDefault = jest.fn();
@@ -306,20 +300,20 @@ describe('component - validatedForm', () => {
       wrapper.vm.submit(submitEvent);
     });
 
-    it('sets submitAttempted to true', function() {
+    test('sets submitAttempted to true', () => {
       expect(wrapper.vm.submitAttempted).toEqual(true);
     });
 
-    it('preventService default form submit', function() {
+    test('preventService default form submit', () => {
       expect(submitEvent.preventDefault).toHaveBeenCalled();
     });
 
-    it('calls $validator.validateAll() with form scope/name', function() {
+    test('calls $validator.validateAll() with form scope/name', () => {
       expect($validator.validateAll).toHaveBeenCalledWith('foobar');
     });
 
-    describe('when $validator.validateAll() resolves with true', function() {
-      beforeEach(function() {
+    describe('when $validator.validateAll() resolves with true', () => {
+      beforeEach(() => {
         validSubmit.mockClear();
 
         $validator.validateAll.mockResolvedValue(true);
@@ -327,15 +321,15 @@ describe('component - validatedForm', () => {
         return wrapper.vm.submit(submitEvent);
       });
 
-      it('calls passed in validSubmit() function', function() {
+      test('calls passed in validSubmit() function', () => {
         expect(validSubmit).toHaveBeenCalled();
       });
     });
 
-    describe('when $validator.validateAll() resolves with false', function() {
+    describe('when $validator.validateAll() resolves with false', () => {
       let invalidInput;
 
-      beforeEach(function() {
+      beforeEach(() => {
         validSubmit.mockClear();
 
         invalidInput = wrapper.element.querySelector('#invalid');
@@ -346,23 +340,16 @@ describe('component - validatedForm', () => {
         return wrapper.vm.submit(submitEvent);
       });
 
-      it('does not call passed in validSubmit() function', function() {
+      test('does not call passed in validSubmit() function', () => {
         expect(validSubmit).toHaveBeenCalledTimes(0);
       });
 
-      it('focuses first invalid input', function() {
+      test('focuses first invalid input', () => {
         expect(invalidInput.focus).toHaveBeenCalled();
       });
     });
   });
 });
-
-
-
-
-
-
-
 
 
 

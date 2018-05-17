@@ -12,7 +12,7 @@
         max: 10
       }">
 
-      <p>{{errors.first('myForm.name')}}</p>
+      <p>{{ errors.first('myForm.name') }}</p>
 
       <label for="phone">Phone</label>
 
@@ -20,7 +20,7 @@
         required: true
       }">
 
-      <p>{{errors.first('myForm.phone')}}</p>
+      <p>{{ errors.first('myForm.phone') }}</p>
 
       <button class="button" type="submit">Submit</button>
     </validated-form>

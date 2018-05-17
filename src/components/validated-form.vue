@@ -16,14 +16,40 @@
   export default {
     name: 'ValidatedForm',
 
+    props: {
+      disabled: {
+        type: Boolean,
+        default: false
+      },
+
+      disableAutoFocus: {
+        type: Boolean,
+        default: false
+      },
+
+      name: {
+        type: String,
+        required: true
+      },
+
+      validSubmit: {
+        type: Function,
+        required: true
+      }
+    },
+
     data() {
       return {
         dirty: false,
         submitAttempted: false
-      }
+      };
     },
 
     inject: ['$validator'],
+
+    mounted() {
+      this.focusFirstInput();
+    },
 
     methods: {
       focusFirstInput() {
@@ -31,7 +57,7 @@
 
         if (firstInput && !this.disableAutoFocus) {
           if (firstInput.type === 'radio') {
-            let checkedRadio = this.$el.querySelector('input:checked');
+            const checkedRadio = this.$el.querySelector('input:checked');
 
             if (checkedRadio) {
               firstInput = checkedRadio;
@@ -60,38 +86,12 @@
         }
 
         else {
-          let firstInvalidInput = this.$el.querySelector('[aria-invalid="true"], .invalid');
+          const firstInvalidInput = this.$el.querySelector('[aria-invalid="true"], .invalid');
 
           if (firstInvalidInput) {
             firstInvalidInput.focus();
           }
         }
-      }
-    },
-
-    mounted() {
-      this.focusFirstInput();
-    },
-
-    props: {
-      disabled: {
-        type: Boolean,
-        default: false
-      },
-
-      disableAutoFocus: {
-        type: Boolean,
-        default: false
-      },
-
-      name: {
-        type: String,
-        required: true
-      },
-
-      validSubmit: {
-        type: Function,
-        required: true
       }
     }
   };

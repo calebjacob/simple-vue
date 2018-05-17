@@ -22,6 +22,7 @@ module.exports = {
     'comma-dangle': ['error', 'never'],
     'brace-style': ['error', 'stroustrup'],
     'max-len': ['off'],
+    'no-alert': ['off'],
     'no-multiple-empty-lines': ['error', {
         max: 3,
         maxEOF: 1

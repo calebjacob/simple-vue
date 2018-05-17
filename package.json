@@ -25,6 +25,8 @@
     "babel-core": "^7.0.0-0",
     "babel-jest": "^22.0.4",
     "eslint-plugin-jest": "^21.15.1",
+    "format-usd": "^1.0.1",
+    "moment": "^2.22.1",
     "nib": "^1.1.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",

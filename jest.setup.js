@@ -13,7 +13,7 @@ Vue.mixin({
       errors: {
         first() {}
       }
-    }
+    };
   }
 });
 
