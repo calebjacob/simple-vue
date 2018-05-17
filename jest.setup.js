@@ -4,9 +4,18 @@ import vueTestUtils from '@vue/test-utils';
 
 
 jest.unmock('vue');
-jest.unmock('vue-router');
 
 jest.setTimeout(500);
+
+Vue.mixin({
+  data() {
+    return {
+      errors: {
+        first() {}
+      }
+    }
+  }
+});
 
 Vue.config.warnHandler = () => {};
 

@@ -62,20 +62,18 @@ describe('component - home', () => {
 
 
   describe('created()', () => {
-    const loadCurrentWeather = home.methods.loadCurrentWeather;
-
     beforeEach(() => {
-      home.methods.loadCurrentWeather = jest.fn();
+      home.loadCurrentWeather = jest.fn();
 
-      wrapper = createWrapper();
+      home.created();
     });
 
     test('calls loadCurrentWeather()', () => {
-      expect(home.methods.loadCurrentWeather).toHaveBeenCalled();
+      expect(home.loadCurrentWeather).toHaveBeenCalled();
     });
 
     afterEach(() => {
-      home.methods.loadCurrentWeather = loadCurrentWeather;
+      delete home.loadCurrentWeather;
     });
   });
 

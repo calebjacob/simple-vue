@@ -1,4 +1,5 @@
 import modal from '@/components/modal.vue';
+import validatedForm from '@/components/validated-form.vue';
 
 import autoFocus from '@/directives/auto-focus';
 import dropDown from '@/directives/drop-down';
@@ -7,6 +8,7 @@ import maskInput from '@/directives/mask-input';
 
 import modals from '@/mixins/modals';
 
+import VeeValidate from 'vee-validate';
 import VueMeta from 'vue-meta';
 import VueRouter from 'vue-router';
 
@@ -14,6 +16,7 @@ import VueRouter from 'vue-router';
 
 function components(Vue) {
   Vue.component('modal', modal);
+  Vue.component('validatedForm', validatedForm);
 }
 
 
@@ -39,6 +42,10 @@ function mixins(Vue) {
 
 
 function plugins(Vue) {
+  Vue.use(VeeValidate, {
+    classes: true
+  });
+
   Vue.use(VueMeta);
   Vue.use(VueRouter);
 }

@@ -7,6 +7,7 @@ import globals from '@/globals';
 // dependencies:
 
 import modal from '@/components/modal.vue';
+import validatedForm from '@/components/validated-form.vue';
 
 import autoFocus from '@/directives/auto-focus';
 import dropDown from '@/directives/drop-down';
@@ -15,6 +16,7 @@ import maskInput from '@/directives/mask-input';
 
 import modals from '@/mixins/modals';
 
+import VeeValidate from 'vee-validate';
 import Vue from 'vue';
 import VueMeta from 'vue-meta';
 import VueRouter from 'vue-router';
@@ -38,6 +40,10 @@ describe('globals', () => {
     describe('components are initialized', () => {
       test('modal', () => {
         expect(Vue.component).toHaveBeenCalledWith('modal', modal);
+      });
+
+      test('validatedForm', () => {
+        expect(Vue.component).toHaveBeenCalledWith('validatedForm', validatedForm);
       });
     });
 
@@ -66,6 +72,12 @@ describe('globals', () => {
     });
 
     describe('plugins are initialized', () => {
+      test('VeeValidate', () => {
+        expect(Vue.use).toHaveBeenCalledWith(VeeValidate, {
+          classes: true
+        });
+      });
+
       test('VueMeta', () => {
         expect(Vue.use).toHaveBeenCalledWith(VueMeta);
       });
