@@ -6,6 +6,9 @@ import dropDown from '@/directives/drop-down';
 import entrapFocus from '@/directives/entrap-focus';
 import maskInput from '@/directives/mask-input';
 
+import dollars from '@/filters/dollars';
+import moment from '@/filters/moment';
+
 import modals from '@/mixins/modals';
 
 import VeeValidate from 'vee-validate';
@@ -30,7 +33,9 @@ function directives(Vue) {
 
 
 
-function filters() {
+function filters(Vue) {
+  Vue.filter('dollars', dollars);
+  Vue.filter('moment', moment);
 }
 
 

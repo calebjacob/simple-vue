@@ -14,6 +14,9 @@ import dropDown from '@/directives/drop-down';
 import entrapFocus from '@/directives/entrap-focus';
 import maskInput from '@/directives/mask-input';
 
+import dollars from '@/filters/dollars';
+import moment from '@/filters/moment';
+
 import modals from '@/mixins/modals';
 
 import VeeValidate from 'vee-validate';
@@ -62,6 +65,16 @@ describe('globals', () => {
 
       test('maskInput', () => {
         expect(Vue.directive).toHaveBeenCalledWith('maskInput', maskInput);
+      });
+    });
+
+    describe('filters are initialized', () => {
+      test('dollars', () => {
+        expect(Vue.filter).toHaveBeenCalledWith('dollars', dollars);
+      });
+
+      test('moment', () => {
+        expect(Vue.filter).toHaveBeenCalledWith('moment', moment);
       });
     });
 
