@@ -42,6 +42,12 @@
   export default {
     name: 'Home',
 
+    metaInfo() {
+      return {
+        title: 'Home'
+      };
+    },
+
     data() {
       return {
         subtitle: 'Time to get to work...',

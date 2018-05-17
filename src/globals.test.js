@@ -16,6 +16,7 @@ import maskInput from '@/directives/mask-input';
 import modals from '@/mixins/modals';
 
 import Vue from 'vue';
+import VueMeta from 'vue-meta';
 import VueRouter from 'vue-router';
 
 
@@ -65,6 +66,10 @@ describe('globals', () => {
     });
 
     describe('plugins are initialized', () => {
+      test('VueMeta', () => {
+        expect(Vue.use).toHaveBeenCalledWith(VueMeta);
+      });
+
       test('VueRouter', () => {
         expect(Vue.use).toHaveBeenCalledWith(VueRouter);
       });

@@ -31,6 +31,10 @@ describe('component - otherPage', () => {
     expect(otherPage.data().phone).toEqual(null);
   });
 
+  test('sets page title', () => {
+    expect(otherPage.metaInfo().title).toEqual('Other Page');
+  });
+
   test('renders a view', () => {
     expect(wrapper.html().length).toBeGreaterThan(0);
   });

@@ -14,6 +14,12 @@
   export default {
     name: 'OtherPage',
 
+    metaInfo() {
+      return {
+        title: 'Other Page'
+      };
+    },
+
     data() {
       return {
         phone: null

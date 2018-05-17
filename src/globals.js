@@ -7,6 +7,7 @@ import maskInput from '@/directives/mask-input';
 
 import modals from '@/mixins/modals';
 
+import VueMeta from 'vue-meta';
 import VueRouter from 'vue-router';
 
 
@@ -38,6 +39,7 @@ function mixins(Vue) {
 
 
 function plugins(Vue) {
+  Vue.use(VueMeta);
   Vue.use(VueRouter);
 }
 

@@ -8,7 +8,13 @@
 
 <script>
   export default {
-    name: 'App'
+    name: 'App',
+
+    metaInfo: {
+      titleTemplate(titleChunk) {
+        return titleChunk ? `${titleChunk} | Simple Vue` : 'Simple Vue';
+      }
+    }
   };
 </script>
 

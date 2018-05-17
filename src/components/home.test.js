@@ -41,6 +41,10 @@ describe('component - home', () => {
     expect(home.name).toEqual('Home');
   });
 
+  test('sets page title', () => {
+    expect(home.metaInfo().title).toEqual('Home');
+  });
+
   test('defaults model values', () => {
     expect(home.data().subtitle).toEqual('Time to get to work...');
     expect(home.data().weather).toEqual({

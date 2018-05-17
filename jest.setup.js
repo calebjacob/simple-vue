@@ -8,7 +8,7 @@ jest.unmock('vue-router');
 
 jest.setTimeout(500);
 
-Vue.config.warnHandler = (message, vm, trace) => {};
+Vue.config.warnHandler = () => {};
 
 global.createLocalVue = vueTestUtils.createLocalVue;
 global.mount = vueTestUtils.mount;
