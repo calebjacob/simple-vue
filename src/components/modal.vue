@@ -61,7 +61,7 @@
     },
 
     mounted() {
-
+      document.body.appendChild(this.$el);
     },
 
     methods: {
@@ -74,7 +74,7 @@
       focusFirstInput() {
         this.$nextTick(() => {
           const allInputs = this.$el.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
-          const firstInput = allInputs[1]; // 0 would be the default modal close button
+          const firstInput = allInputs[1]; // the first input after the default modal close button
 
           if (firstInput) {
             firstInput.focus();
