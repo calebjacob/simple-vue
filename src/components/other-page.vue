@@ -8,19 +8,21 @@
 
 
 
-    <validated-form name="myForm" :valid-submit="updateUser">
-      <label for="name">Name</label>
+    <h2>Sign In</h2>
 
-      <input type="text" name="name" id="name" placeholder="Name..." v-model="name" v-validate="{
+    <validated-form name="myForm" :valid-submit="updateUser">
+      <label class="label" for="name">Name</label>
+
+      <input class="text-input" type="text" name="name" id="name" placeholder="Name..." v-model="name" v-validate="{
         required: true,
         max: 10
       }">
 
       <p>{{ errors.first('myForm.name') }}</p>
 
-      <label for="phone">Phone</label>
+      <label class="label" for="phone">Phone</label>
 
-      <input type="phone" name="phone" id="phone" placeholder="Phone number..." v-model="phone" v-mask-input="'phone'" v-validate="{
+      <input class="text-input" type="phone" name="phone" id="phone" placeholder="Phone number..." v-model="phone" v-mask-input="'phone'" v-validate="{
         required: true
       }">
 
