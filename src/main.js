@@ -11,9 +11,9 @@ Vue.config.productionTip = false;
 
 
 
-// initialize global vue components, directives, and filters:
+// initialize global vue plugins, components, directives, filters, and mixins:
 
-globals.initialize(Vue);
+globals.initialize();
 
 
 

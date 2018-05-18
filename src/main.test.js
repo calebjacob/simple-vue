@@ -36,7 +36,7 @@ describe('main', () => {
     expect(Vue.config.productionTip).toEqual(false);
   });
 
-  it('global vue components, directives, and filters are initialized', () => {
+  it('global vue components, directives, etc. are initialized', () => {
     expect(globals.initialize).toHaveBeenCalled();
   });
 

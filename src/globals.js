@@ -12,20 +12,21 @@ import moment from '@/filters/moment';
 import modals from '@/mixins/modals';
 import user from '@/mixins/user';
 
+import Vue from 'vue';
 import VeeValidate from 'vee-validate';
 import VueMeta from 'vue-meta';
 import VueRouter from 'vue-router';
 
 
 
-function components(Vue) {
+function components() {
   Vue.component('modal', modal);
   Vue.component('validatedForm', validatedForm);
 }
 
 
 
-function directives(Vue) {
+function directives() {
   Vue.directive('autoFocus', autoFocus);
   Vue.directive('dropDown', dropDown);
   Vue.directive('entrapFocus', entrapFocus);
@@ -34,21 +35,21 @@ function directives(Vue) {
 
 
 
-function filters(Vue) {
+function filters() {
   Vue.filter('dollars', dollars);
   Vue.filter('moment', moment);
 }
 
 
 
-function mixins(Vue) {
+function mixins() {
   Vue.mixin(modals);
   Vue.mixin(user);
 }
 
 
 
-function plugins(Vue) {
+function plugins() {
   Vue.use(VeeValidate, {
     classes: true
   });
@@ -60,12 +61,12 @@ function plugins(Vue) {
 
 
 const globals = {
-  initialize(Vue) {
-    components(Vue);
-    directives(Vue);
-    filters(Vue);
-    mixins(Vue);
-    plugins(Vue);
+  initialize() {
+    components();
+    directives();
+    filters();
+    mixins();
+    plugins();
   }
 };
 

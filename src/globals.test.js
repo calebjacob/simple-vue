@@ -39,7 +39,7 @@ jest.mock('@/services/session');
 describe('globals', () => {
   describe('initialize()', () => {
     beforeEach(() => {
-      globals.initialize(Vue);
+      globals.initialize();
     });
 
     describe('components are initialized', () => {
