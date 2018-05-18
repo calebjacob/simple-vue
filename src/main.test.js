@@ -32,15 +32,15 @@ jest.mock('vue');
 // tests:
 
 describe('main', () => {
-  test('show production tip is set to false', () => {
+  it('show production tip is set to false', () => {
     expect(Vue.config.productionTip).toEqual(false);
   });
 
-  test('global vue components, directives, and filters are initialized', () => {
+  it('global vue components, directives, and filters are initialized', () => {
     expect(globals.initialize).toHaveBeenCalled();
   });
 
-  test('vue instance is configured', () => {
+  it('vue instance is configured', () => {
     const createElement = jest.fn(() => {
       return 'created element';
     });
@@ -55,7 +55,7 @@ describe('main', () => {
     expect(renderResult).toEqual('created element');
   });
 
-  test('vue instance is exported', () => {
+  it('vue instance is exported', () => {
     expect(main.name).toEqual('vue instance');
   });
 });

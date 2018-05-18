@@ -18,6 +18,7 @@ import dollars from '@/filters/dollars';
 import moment from '@/filters/moment';
 
 import modals from '@/mixins/modals';
+import user from '@/mixins/user';
 
 import VeeValidate from 'vee-validate';
 import Vue from 'vue';
@@ -29,6 +30,7 @@ import VueRouter from 'vue-router';
 // mocks:
 
 jest.mock('vue');
+jest.mock('@/services/session');
 
 
 
@@ -41,61 +43,65 @@ describe('globals', () => {
     });
 
     describe('components are initialized', () => {
-      test('modal', () => {
+      it('modal', () => {
         expect(Vue.component).toHaveBeenCalledWith('modal', modal);
       });
 
-      test('validatedForm', () => {
+      it('validatedForm', () => {
         expect(Vue.component).toHaveBeenCalledWith('validatedForm', validatedForm);
       });
     });
 
     describe('directives are initialized', () => {
-      test('autoFocus', () => {
+      it('autoFocus', () => {
         expect(Vue.directive).toHaveBeenCalledWith('autoFocus', autoFocus);
       });
 
-      test('dropDown', () => {
+      it('dropDown', () => {
         expect(Vue.directive).toHaveBeenCalledWith('dropDown', dropDown);
       });
 
-      test('entrapFocus', () => {
+      it('entrapFocus', () => {
         expect(Vue.directive).toHaveBeenCalledWith('entrapFocus', entrapFocus);
       });
 
-      test('maskInput', () => {
+      it('maskInput', () => {
         expect(Vue.directive).toHaveBeenCalledWith('maskInput', maskInput);
       });
     });
 
     describe('filters are initialized', () => {
-      test('dollars', () => {
+      it('dollars', () => {
         expect(Vue.filter).toHaveBeenCalledWith('dollars', dollars);
       });
 
-      test('moment', () => {
+      it('moment', () => {
         expect(Vue.filter).toHaveBeenCalledWith('moment', moment);
       });
     });
 
     describe('mixins are initialized', () => {
-      test('modals', () => {
+      it('modals', () => {
         expect(Vue.mixin).toHaveBeenCalledWith(modals);
+      });
+
+      it('user', () => {
+        expect(Vue.mixin).toHaveBeenCalledWith(user);
       });
     });
 
     describe('plugins are initialized', () => {
-      test('VeeValidate', () => {
+      it('VeeValidate', () => {
         expect(Vue.use).toHaveBeenCalledWith(VeeValidate, {
           classes: true
         });
       });
 
-      test('VueMeta', () => {
+      it('VueMeta', () => {
         expect(Vue.use).toHaveBeenCalledWith(VueMeta);
       });
 
-      test('VueRouter', () => {
+      it('VueRouter', () => {
         expect(Vue.use).toHaveBeenCalledWith(VueRouter);
       });
     });

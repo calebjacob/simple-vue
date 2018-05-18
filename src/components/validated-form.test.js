@@ -50,16 +50,16 @@ describe('component - validatedForm', () => {
     wrapper = createWrapper();
   });
 
-  test('correctly named', () => {
+  it('correctly named', () => {
     expect(validatedForm.name).toEqual('ValidatedForm');
   });
 
-  test('defaults model values', () => {
+  it('defaults model values', () => {
     expect(validatedForm.data().dirty).toEqual(false);
     expect(validatedForm.data().submitAttempted).toEqual(false);
   });
 
-  test('allows props', () => {
+  it('allows props', () => {
     expect(validatedForm.props).toEqual({
       disabled: {
         type: Boolean,
@@ -83,7 +83,7 @@ describe('component - validatedForm', () => {
     });
   });
 
-  test('injects $validator', () => {
+  it('injects $validator', () => {
     expect(validatedForm.inject.$validator).toBeTruthy();
   });
 
@@ -94,7 +94,7 @@ describe('component - validatedForm', () => {
       validatedForm.mounted();
     });
 
-    test('calls focusFirstInput()', () => {
+    it('calls focusFirstInput()', () => {
       expect(validatedForm.focusFirstInput).toHaveBeenCalled();
     });
 
@@ -126,7 +126,7 @@ describe('component - validatedForm', () => {
           wrapper.vm.focusFirstInput();
         });
 
-        test('input is not focused', () => {
+        it('input is not focused', () => {
           expect(input.focus).toHaveBeenCalledTimes(0);
         });
       });
@@ -152,7 +152,7 @@ describe('component - validatedForm', () => {
           wrapper.vm.focusFirstInput();
         });
 
-        test('input is focused', () => {
+        it('input is focused', () => {
           expect(input.focus).toHaveBeenCalled();
         });
       });
@@ -176,7 +176,7 @@ describe('component - validatedForm', () => {
           wrapper.vm.focusFirstInput();
         });
 
-        test('input is focused', () => {
+        it('input is focused', () => {
           expect(input.focus).toHaveBeenCalled();
         });
       });
@@ -200,7 +200,7 @@ describe('component - validatedForm', () => {
           wrapper.vm.focusFirstInput();
         });
 
-        test('input is focused', () => {
+        it('input is focused', () => {
           expect(input.focus).toHaveBeenCalled();
         });
       });
@@ -224,7 +224,7 @@ describe('component - validatedForm', () => {
           wrapper.vm.focusFirstInput();
         });
 
-        test('checked radio option is focused', () => {
+        it('checked radio option is focused', () => {
           expect(input.focus).toHaveBeenCalled();
         });
       });
@@ -248,7 +248,7 @@ describe('component - validatedForm', () => {
           wrapper.vm.focusFirstInput();
         });
 
-        test('select is focused', () => {
+        it('select is focused', () => {
           expect(input.focus).toHaveBeenCalled();
         });
       });
@@ -272,7 +272,7 @@ describe('component - validatedForm', () => {
           wrapper.vm.focusFirstInput();
         });
 
-        test('button is focused', () => {
+        it('button is focused', () => {
           expect(input.focus).toHaveBeenCalled();
         });
       });
@@ -285,7 +285,7 @@ describe('component - validatedForm', () => {
       wrapper.vm.markFormAsDirty();
     });
 
-    test('sets dirty to true', () => {
+    it('sets dirty to true', () => {
       expect(wrapper.vm.dirty).toEqual(true);
     });
   });
@@ -300,15 +300,15 @@ describe('component - validatedForm', () => {
       wrapper.vm.submit(submitEvent);
     });
 
-    test('sets submitAttempted to true', () => {
+    it('sets submitAttempted to true', () => {
       expect(wrapper.vm.submitAttempted).toEqual(true);
     });
 
-    test('preventService default form submit', () => {
+    it('preventService default form submit', () => {
       expect(submitEvent.preventDefault).toHaveBeenCalled();
     });
 
-    test('calls $validator.validateAll() with form scope/name', () => {
+    it('calls $validator.validateAll() with form scope/name', () => {
       expect($validator.validateAll).toHaveBeenCalledWith('foobar');
     });
 
@@ -321,7 +321,7 @@ describe('component - validatedForm', () => {
         return wrapper.vm.submit(submitEvent);
       });
 
-      test('calls passed in validSubmit() function', () => {
+      it('calls passed in validSubmit() function', () => {
         expect(validSubmit).toHaveBeenCalled();
       });
     });
@@ -340,171 +340,13 @@ describe('component - validatedForm', () => {
         return wrapper.vm.submit(submitEvent);
       });
 
-      test('does not call passed in validSubmit() function', () => {
+      it('does not call passed in validSubmit() function', () => {
         expect(validSubmit).toHaveBeenCalledTimes(0);
       });
 
-      test('focuses first invalid input', () => {
+      it('focuses first invalid input', () => {
         expect(invalidInput.focus).toHaveBeenCalled();
       });
     });
   });
 });
-
-
-
-// let event = {};
-// let validSubmit;
-
-
-
-// let $validator = {};
-
-
-
-// const injector = require('!!vue-loader?inject!components/validated-form.vue');
-// const validatedForm = injector({});
-
-
-
-// function createWrapper() {
-//   let wrapper = avoriaz.mount(validatedForm, {
-//     globals: {
-//       $validator: $validator
-//     },
-//     slots: {
-//       default: {
-//         template: `
-//           <div>
-            // <input name="fieldOne" type="text">
-            // <input name="fieldTwo" type="text" aria-invalid="true">
-//           </div>
-//         `
-//       }
-//     }
-//   });
-
-//   wrapper.setProps({
-//     name: 'myForm',
-//     validSubmit: validSubmit,
-//     disabled: false,
-//     disableAutoFocus: true
-//   });
-
-//   return wrapper;
-// }
-
-
-
-// describe('component - validatedForm', function() {
-//   let wrapper;
-
-//   beforeEach(function() {
-//     event.preventDefault = sinon.stub();
-//     validSubmit = sinon.stub();
-//     $validator.validateAll = sinon.stub().returnsPromise();
-
-//     wrapper = createWrapper();
-//   });
-
-//   it('passes through props to model', function() {
-//     expect(wrapper.vm.disabled).to.equal(false);
-//     expect(wrapper.vm.disableAutoFocus).to.equal(true);
-//     expect(wrapper.vm.name).to.equal('myForm');
-//     expect(wrapper.vm.validSubmit).to.equal(validSubmit);
-//   });
-
-//   it('defaults data model values', function() {
-//     expect(validatedForm.data().dirty).to.equal(false);
-//     expect(validatedForm.data().submitAttempted).to.equal(false);
-//   });
-
-//   it('injects $validator', function() {
-//     expect(validatedForm.inject.$validator).to.deep.equal({
-//       from: '$validator'
-//     });
-//   });
-
-
-
-  // describe('methods.markFormAsDirty()', function() {
-  //   beforeEach(function() {
-  //     wrapper.vm.dirty = false;
-  //     wrapper.vm.markFormAsDirty();
-  //   });
-
-  //   it('sets dirty to true', function() {
-  //     expect(wrapper.vm.dirty).to.equal(true);
-  //   });
-  // });
-
-
-
-  // describe('methods.submit()', function() {
-  //   let sharedExamples = function sharedExamples() {
-  //     it('sets submitAttempted to true', function() {
-  //       expect(wrapper.vm.submitAttempted).to.equal(true);
-  //     });
-
-  //     it('preventService default form submit', function() {
-  //       sinon.assert.called(event.preventDefault);
-  //     });
-
-  //     describe('when $validator.validateAll() resolves with true', function() {
-  //       beforeEach(function() {
-  //         $validator.validateAll.resolves(true);
-  //       });
-
-  //       it('calls passed in validSubmit() function', function() {
-  //         sinon.assert.called(validSubmit);
-  //       });
-  //     });
-
-  //     describe('when $validator.validateAll() resolves with false', function() {
-  //       let invalidInput;
-
-  //       beforeEach(function() {
-  //         invalidInput = wrapper.find('input')[1].element;
-  //         sinon.spy(invalidInput, 'focus');
-
-  //         $validator.validateAll.resolves(false);
-  //       });
-
-  //       it('does not call passed in validSubmit() function', function() {
-  //         sinon.assert.notCalled(validSubmit);
-  //       });
-
-  //       it('focuses first invalid input', function() {
-  //         sinon.assert.called(invalidInput.focus);
-  //       });
-  //     });
-  //   };
-
-  //   describe('when form has no name', function() {
-  //     beforeEach(function() {
-  //       wrapper.vm.name = null;
-  //       wrapper.vm.submit(event);
-  //     });
-
-  //     it('calls $validator.validateAll() without any arguments', function() {
-  //       sinon.assert.called($validator.validateAll);
-  //       expect($validator.validateAll.getCall(0).args.length).to.equal(0);
-  //     });
-
-  //     sharedExamples();
-  //   });
-
-  //   describe('when form has a name', function() {
-  //     beforeEach(function() {
-  //       wrapper.vm.name = 'foobar';
-  //       wrapper.vm.submit(event);
-  //     });
-
-  //     it('calls $validator.validateAll() with form scope/name', function() {
-  //       sinon.assert.calledWith($validator.validateAll, 'foobar');
-  //     });
-
-  //     sharedExamples();
-  //   });
-  // });
-// });

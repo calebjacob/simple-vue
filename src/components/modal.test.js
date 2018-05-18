@@ -45,15 +45,15 @@ describe('component - modal', () => {
     wrapper = createWrapper();
   });
 
-  test('correctly named', () => {
+  it('correctly named', () => {
     expect(modal.name).toEqual('Modal');
   });
 
-  test('defaults model values', () => {
+  it('defaults model values', () => {
     expect(modal.data().isOpen).toEqual(false);
   });
 
-  test('allows props', () => {
+  it('allows props', () => {
     expect(modal.props).toEqual({
       modalStyle: {
         type: String,
@@ -73,29 +73,29 @@ describe('component - modal', () => {
       wrapper.vm.open = jest.fn();
     });
 
-    describe('when "closeModal" event occurs', () => {
-      test('modal closes when name matches', () => {
-        events.$emit('closeModal', 'foobar');
+    describe('when "modals:close" event occurs', () => {
+      it('modal closes when name matches', () => {
+        events.$emit('modals:close', 'foobar');
 
         expect(wrapper.vm.close).toHaveBeenCalled();
       });
 
-      test('modal does not close when name does not match', () => {
-        events.$emit('closeModal', 'baz');
+      it('modal does not close when name does not match', () => {
+        events.$emit('modals:close', 'baz');
 
         expect(wrapper.vm.close).toHaveBeenCalledTimes(0);
       });
     });
 
-    describe('when "openModal" event occurs', () => {
-      test('modal opens when name matches', () => {
-        events.$emit('openModal', 'foobar');
+    describe('when "modals:open" event occurs', () => {
+      it('modal opens when name matches', () => {
+        events.$emit('modals:open', 'foobar');
 
         expect(wrapper.vm.open).toHaveBeenCalled();
       });
 
-      test('modal does not open when name does not match', () => {
-        events.$emit('openModal', 'baz');
+      it('modal does not open when name does not match', () => {
+        events.$emit('modals:open', 'baz');
 
         expect(wrapper.vm.open).toHaveBeenCalledTimes(0);
       });
@@ -110,11 +110,11 @@ describe('component - modal', () => {
       wrapper.vm.close();
     });
 
-    test('sets isOpen to false', () => {
+    it('sets isOpen to false', () => {
       expect(wrapper.vm.isOpen).toEqual(false);
     });
 
-    test('re-enables body scrolling', () => {
+    it('re-enables body scrolling', () => {
       expect(document.body.style.overflow).toEqual('');
     });
   });
@@ -131,7 +131,7 @@ describe('component - modal', () => {
       wrapper.vm.focusFirstInput();
     });
 
-    test('first input after the default modal close button is focused', () => {
+    it('first input after the default modal close button is focused', () => {
       expect(firstInput.focus).toHaveBeenCalled();
     });
   });
@@ -146,15 +146,15 @@ describe('component - modal', () => {
       wrapper.vm.open();
     });
 
-    test('sets isOpen to true', () => {
+    it('sets isOpen to true', () => {
       expect(wrapper.vm.isOpen).toEqual(true);
     });
 
-    test('disables body scrolling', () => {
+    it('disables body scrolling', () => {
       expect(document.body.style.overflow).toEqual('hidden');
     });
 
-    test('focuses first input', () => {
+    it('focuses first input', () => {
       expect(wrapper.vm.focusFirstInput).toHaveBeenCalled();
     });
   });

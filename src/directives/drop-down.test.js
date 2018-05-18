@@ -49,7 +49,7 @@ describe('directive - dropDown', () => {
       wrapper.element.dispatchEvent(clickEvent);
     });
 
-    test('adds the open class to element', () => {
+    it('adds the open class to element', () => {
       expect(wrapper.element.classList.contains('my-open-drop-down-class')).toEqual(true);
     });
 
@@ -61,7 +61,7 @@ describe('directive - dropDown', () => {
         });
       });
 
-      test('removes the open class from element', () => {
+      it('removes the open class from element', () => {
         expect(wrapper.element.classList.contains('my-open-drop-down-class')).toEqual(false);
       });
 
@@ -73,7 +73,7 @@ describe('directive - dropDown', () => {
           });
         });
 
-        test('adds the open class to element', () => {
+        it('adds the open class to element', () => {
           expect(wrapper.element.classList.contains('my-open-drop-down-class')).toEqual(true);
         });
       });

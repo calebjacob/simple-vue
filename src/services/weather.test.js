@@ -28,7 +28,7 @@ describe('service - weather', () => {
       weather.current();
     });
 
-    test('makes GET request to weather API', () => {
+    it('makes GET request to weather API', () => {
       expect(http.get).toHaveBeenCalledWith('http://api.openweathermap.org/data/2.5/weather', {
         params: {
           APPID: '2e2a8390dae7fbc708e7a0f795a6e46f',
@@ -45,7 +45,7 @@ describe('service - weather', () => {
         });
       });
 
-      test('data is returned', async () => {
+      it('data is returned', async () => {
         const response = await weather.current();
 
         expect(response).toEqual('weather data');
@@ -59,7 +59,7 @@ describe('service - weather', () => {
         http.get.mockRejectedValue(requestError);
       });
 
-      test('throws error', async () => {
+      it('throws error', async () => {
         expect.hasAssertions();
 
         try {

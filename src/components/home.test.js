@@ -37,15 +37,15 @@ describe('component - home', () => {
     wrapper = createWrapper();
   });
 
-  test('correctly named', () => {
+  it('correctly named', () => {
     expect(home.name).toEqual('Home');
   });
 
-  test('sets page title', () => {
+  it('sets page title', () => {
     expect(home.metaInfo().title).toEqual('Home');
   });
 
-  test('defaults model values', () => {
+  it('defaults model values', () => {
     expect(home.data().subtitle).toEqual('Time to get to work...');
     expect(home.data().weather).toEqual({
       temperature: 0,
@@ -55,11 +55,9 @@ describe('component - home', () => {
     expect(home.data().weatherFailedToLoad).toEqual(false);
   });
 
-  test('renders a view', () => {
+  it('renders a view', () => {
     expect(wrapper.html().length).toBeGreaterThan(0);
   });
-
-
 
   describe('created()', () => {
     beforeEach(() => {
@@ -68,7 +66,7 @@ describe('component - home', () => {
       home.created();
     });
 
-    test('calls loadCurrentWeather()', () => {
+    it('calls loadCurrentWeather()', () => {
       expect(home.loadCurrentWeather).toHaveBeenCalled();
     });
 
@@ -76,8 +74,6 @@ describe('component - home', () => {
       delete home.loadCurrentWeather;
     });
   });
-
-
 
   describe('methods.loadCurrentWeather()', () => {
     beforeEach(() => {
@@ -87,15 +83,15 @@ describe('component - home', () => {
       wrapper.vm.loadCurrentWeather();
     });
 
-    test('sets weatherIsLoading to true', () => {
+    it('sets weatherIsLoading to true', () => {
       expect(wrapper.vm.weatherIsLoading).toEqual(true);
     });
 
-    test('sets weatherFailedToLoad to false', () => {
+    it('sets weatherFailedToLoad to false', () => {
       expect(wrapper.vm.weatherFailedToLoad).toEqual(false);
     });
 
-    test('requests current weather', () => {
+    it('requests current weather', () => {
       expect(weather.current).toHaveBeenCalled();
     });
 
@@ -115,11 +111,11 @@ describe('component - home', () => {
         return wrapper.vm.loadCurrentWeather();
       });
 
-      test('sets weatherIsLoading to false', () => {
+      it('sets weatherIsLoading to false', () => {
         expect(wrapper.vm.weatherIsLoading).toEqual(false);
       });
 
-      test('keeps weatherFailedToLoad set to false', () => {
+      it('keeps weatherFailedToLoad set to false', () => {
         expect(wrapper.vm.weatherFailedToLoad).toEqual(false);
       });
     });
@@ -131,11 +127,11 @@ describe('component - home', () => {
         return wrapper.vm.loadCurrentWeather();
       });
 
-      test('sets weatherIsLoading to false', () => {
+      it('sets weatherIsLoading to false', () => {
         expect(wrapper.vm.weatherIsLoading).toEqual(false);
       });
 
-      test('sets weatherFailedToLoad to true', () => {
+      it('sets weatherFailedToLoad to true', () => {
         expect(wrapper.vm.weatherFailedToLoad).toEqual(true);
       });
     });

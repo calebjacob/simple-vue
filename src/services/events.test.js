@@ -19,11 +19,11 @@ jest.mock('vue');
 // tests:
 
 describe('service - events', () => {
-  test('default vue instance is configured', () => {
+  it('default vue instance is configured', () => {
     expect(Vue).toHaveBeenCalled();
   });
 
-  test('vue instance is exported', () => {
+  it('vue instance is exported', () => {
     expect(events.name).toEqual('vue instance');
   });
 });

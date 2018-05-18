@@ -10,6 +10,7 @@ import dollars from '@/filters/dollars';
 import moment from '@/filters/moment';
 
 import modals from '@/mixins/modals';
+import user from '@/mixins/user';
 
 import VeeValidate from 'vee-validate';
 import VueMeta from 'vue-meta';
@@ -42,6 +43,7 @@ function filters(Vue) {
 
 function mixins(Vue) {
   Vue.mixin(modals);
+  Vue.mixin(user);
 }
 
 

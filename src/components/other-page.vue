@@ -2,9 +2,13 @@
   <div class="container">
     <h1>Other Page</h1>
 
-    <p>This is an example of another page. Exciting!</p>
+    <p>Here's the current date and time: {{ Date.now() | moment('MMM D, YYYY - h:mm A') }}</p>
 
-    <validated-form name="myForm" :valid-submit="doTheThing">
+    <p>Here's a dollar amount: {{ 101.7 | dollars }}</p>
+
+
+
+    <validated-form name="myForm" :valid-submit="updateUser">
       <label for="name">Name</label>
 
       <input type="text" name="name" id="name" placeholder="Name..." v-model="name" v-validate="{
@@ -24,12 +28,28 @@
 
       <button class="button" type="submit">Submit</button>
     </validated-form>
+
+
+
+    <h2>User</h2>
+
+    <div v-if="$user">
+      <p>{{ $user }}</p>
+
+      <button class="button" type="button" @click="resetUser">Reset</button>
+    </div>
+
+    <p v-else>Not signed in yet.</p>
   </div>
 </template>
 
 
 
 <script>
+  import session from '@/services/session';
+
+
+
   export default {
     name: 'OtherPage',
 
@@ -47,8 +67,15 @@
     },
 
     methods: {
-      doTheThing() {
-        alert('Valid form submit! :)');
+      resetUser() { // TEST
+        session.reset();
+      },
+
+      updateUser() { // TEST
+        session.user.set({
+          name: this.name,
+          phone: this.phone
+        });
       }
     }
   };

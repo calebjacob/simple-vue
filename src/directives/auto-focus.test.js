@@ -47,7 +47,7 @@ describe('directive - autoFocus', () => {
       autoFocus.inserted(input);
     });
 
-    test('focuses the input', () => {
+    it('focuses the input', () => {
       expect(input.focus).toHaveBeenCalled();
     });
   });

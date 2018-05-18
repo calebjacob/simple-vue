@@ -36,8 +36,8 @@ module.exports = {
     'prefer-destructuring': ['off'],
 
     'jest/consistent-test-it': ['error', {
-        fn: 'test',
-        withinDescribe: 'test'
+        fn: 'it',
+        withinDescribe: 'it'
       }
     ],
 

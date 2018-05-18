@@ -50,7 +50,7 @@ describe('directive - maskInput', () => {
     });
 
     describe('when user changes input', () => {
-      test('formats their input', (done) => {
+      it('formats their input', (done) => {
         wrapper.vm.myValue = '122333';
 
         wrapper.vm.$nextTick(() => {
@@ -61,7 +61,7 @@ describe('directive - maskInput', () => {
         });
       });
 
-      test('reformats other formats', (done) => {
+      it('reformats other formats', (done) => {
         wrapper.vm.myValue = '1.22 333';
 
         wrapper.vm.$nextTick(() => {
@@ -72,7 +72,7 @@ describe('directive - maskInput', () => {
         });
       });
 
-      test('strips out non digit characters', (done) => {
+      it('strips out non digit characters', (done) => {
         wrapper.vm.myValue = 'a1.22}3D33';
 
         wrapper.vm.$nextTick(() => {
@@ -93,7 +93,7 @@ describe('directive - maskInput', () => {
     });
 
     describe('when user changes input', () => {
-      test('formats their input', (done) => {
+      it('formats their input', (done) => {
         wrapper.vm.myValue = '1234123412341234';
 
         wrapper.vm.$nextTick(() => {
@@ -104,7 +104,7 @@ describe('directive - maskInput', () => {
         });
       });
 
-      test('reformats other formats', (done) => {
+      it('reformats other formats', (done) => {
         wrapper.vm.myValue = '1234 1234.1234 / 1234';
 
         wrapper.vm.$nextTick(() => {
@@ -115,7 +115,7 @@ describe('directive - maskInput', () => {
         });
       });
 
-      test('strips out non digit characters', (done) => {
+      it('strips out non digit characters', (done) => {
         wrapper.vm.myValue = '12,34/1234a1234-12.34b';
 
         wrapper.vm.$nextTick(() => {
@@ -136,7 +136,7 @@ describe('directive - maskInput', () => {
     });
 
     describe('when user changes input', () => {
-      test('formats their input', (done) => {
+      it('formats their input', (done) => {
         wrapper.vm.myValue = '1231231234';
 
         wrapper.vm.$nextTick(() => {
@@ -147,7 +147,7 @@ describe('directive - maskInput', () => {
         });
       });
 
-      test('reformats other formats', (done) => {
+      it('reformats other formats', (done) => {
         wrapper.vm.myValue = '(123) 123-1234';
 
         wrapper.vm.$nextTick(() => {
@@ -158,7 +158,7 @@ describe('directive - maskInput', () => {
         });
       });
 
-      test('strips out non digit characters', (done) => {
+      it('strips out non digit characters', (done) => {
         wrapper.vm.myValue = '.1/2a3)123{12--34';
 
         wrapper.vm.$nextTick(() => {

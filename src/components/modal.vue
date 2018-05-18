@@ -47,13 +47,13 @@
     },
 
     created() {
-      events.$on('closeModal', (name) => {
+      events.$on('modals:close', (name) => {
         if (name === this.name) {
           this.close();
         }
       });
 
-      events.$on('openModal', (name) => {
+      events.$on('modals:open', (name) => {
         if (name === this.name) {
           this.open();
         }

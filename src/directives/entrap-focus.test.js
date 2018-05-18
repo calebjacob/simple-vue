@@ -54,15 +54,11 @@ describe('directive - entrapFocus', () => {
     entrapFocus.inserted(wrapper.element);
   });
 
-
-
   describe('when the input is inserted into the DOM', () => {
-    test('automatically focuses the first input', () => {
+    it('automatically focuses the first input', () => {
       expect(firstInput.focus).toHaveBeenCalled();
     });
   });
-
-
 
   describe('when tabbing downwards', () => {
     let keydownEvent;
@@ -82,11 +78,11 @@ describe('directive - entrapFocus', () => {
         firstInput.dispatchEvent(keydownEvent);
       });
 
-      test('does not preventDefault()', () => {
+      it('does not preventDefault()', () => {
         expect(keydownEvent.preventDefault).toHaveBeenCalledTimes(0);
       });
 
-      test('does not focus last input', () => {
+      it('does not focus last input', () => {
         expect(lastInput.focus).toHaveBeenCalledTimes(0);
       });
     });
@@ -96,17 +92,15 @@ describe('directive - entrapFocus', () => {
         lastInput.dispatchEvent(keydownEvent);
       });
 
-      test('does preventDefault()', () => {
+      it('does preventDefault()', () => {
         expect(keydownEvent.preventDefault).toHaveBeenCalled();
       });
 
-      test('focuses first input', () => {
+      it('focuses first input', () => {
         expect(firstInput.focus).toHaveBeenCalled();
       });
     });
   });
-
-
 
   describe('when tabbing upwards', () => {
     let keydownEvent;
@@ -126,11 +120,11 @@ describe('directive - entrapFocus', () => {
         firstInput.dispatchEvent(keydownEvent);
       });
 
-      test('does preventDefault()', () => {
+      it('does preventDefault()', () => {
         expect(keydownEvent.preventDefault).toHaveBeenCalled();
       });
 
-      test('focuses last input', () => {
+      it('focuses last input', () => {
         expect(lastInput.focus).toHaveBeenCalled();
       });
     });
@@ -140,11 +134,11 @@ describe('directive - entrapFocus', () => {
         lastInput.dispatchEvent(keydownEvent);
       });
 
-      test('does not preventDefault()', () => {
+      it('does not preventDefault()', () => {
         expect(keydownEvent.preventDefault).toHaveBeenCalledTimes(0);
       });
 
-      test('does not focus first input', () => {
+      it('does not focus first input', () => {
         expect(firstInput.focus).toHaveBeenCalledTimes(0);
       });
     });

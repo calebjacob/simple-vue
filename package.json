@@ -28,6 +28,7 @@
     "format-usd": "^1.0.1",
     "moment": "^2.22.1",
     "nib": "^1.1.2",
+    "store": "^2.0.12",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "vee-validate": "^2.0.9",

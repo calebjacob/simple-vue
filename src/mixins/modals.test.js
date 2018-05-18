@@ -54,8 +54,8 @@ describe('mixin - modals', () => {
       wrapper.vm.$closeModal('foobar');
     });
 
-    test('emits a "closeModal" event message', () => {
-      expect(events.$emit).toHaveBeenCalledWith('closeModal', 'foobar');
+    it('emits a "modals:close" event message', () => {
+      expect(events.$emit).toHaveBeenCalledWith('modals:close', 'foobar');
     });
   });
 
@@ -64,8 +64,8 @@ describe('mixin - modals', () => {
       wrapper.vm.$openModal('foobar');
     });
 
-    test('emits an "openModal" event message', () => {
-      expect(events.$emit).toHaveBeenCalledWith('openModal', 'foobar');
+    it('emits an "modals:open" event message', () => {
+      expect(events.$emit).toHaveBeenCalledWith('modals:open', 'foobar');
     });
   });
 });

@@ -21,7 +21,7 @@ jest.mock('vue-router');
 // tests:
 
 describe('router', () => {
-  test('router instance is configured', () => {
+  it('router instance is configured', () => {
     expect(VueRouter).toBeCalledWith({
       mode: 'history',
       routes: [
@@ -39,7 +39,7 @@ describe('router', () => {
     });
   });
 
-  test('exports router instance', () => {
+  it('exports router instance', () => {
     expect(router.name).toEqual('vue router instance');
   });
 });
