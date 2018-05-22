@@ -5,8 +5,8 @@ import filterObjects from '@/helpers/filter-objects';
 
 // tests:
 
-describe('helpers - filterObjects', function() {
-  let objectOne = {
+describe('helpers - filterObjects', () => {
+  const objectOne = {
     name: 'Von Miller',
     state: 'Colorado',
     appearance: {
@@ -14,7 +14,7 @@ describe('helpers - filterObjects', function() {
     }
   };
 
-  let objectTwo = {
+  const objectTwo = {
     name: 'Donald Trump',
     state: 'Colorado',
     appearance: {
@@ -22,7 +22,7 @@ describe('helpers - filterObjects', function() {
     }
   };
 
-  let objectThree = {
+  const objectThree = {
     name: 'B.o-b\'s Mike',
     state: 'Virginia',
     appearance: {
@@ -30,59 +30,59 @@ describe('helpers - filterObjects', function() {
     }
   };
 
-  let objects = [objectOne, objectTwo, objectThree];
-  let searchKeys = ['name', 'state', 'appearance.hairColor'];
+  const objects = [objectOne, objectTwo, objectThree];
+  const searchKeys = ['name', 'state', 'appearance.hairColor'];
 
-  describe('when searchTerm is null', function() {
-    it('no objects are filtered out', function() {
-      let results = filterObjects(null, searchKeys, objects);
+  describe('when searchTerm is null', () => {
+    it('no objects are filtered out', () => {
+      const results = filterObjects(null, searchKeys, objects);
       expect(results).toEqual(objects);
     });
   });
 
-  describe('when searchTerm is defined', function() {
-    it('filters based on exact match', function() {
-      let results = filterObjects('Colorado', searchKeys, objects);
+  describe('when searchTerm is defined', () => {
+    it('filters based on exact match', () => {
+      const results = filterObjects('Colorado', searchKeys, objects);
       expect(results).toEqual([objectOne, objectTwo]);
     });
 
-    it('filters based on partial match', function() {
-      let results = filterObjects('Colo', searchKeys, objects);
+    it('filters based on partial match', () => {
+      const results = filterObjects('Colo', searchKeys, objects);
       expect(results).toEqual([objectOne, objectTwo]);
     });
 
-    it('filters based on exact match of multiple words', function() {
-      let results = filterObjects('Von Colorado', searchKeys, objects);
+    it('filters based on exact match of multiple words', () => {
+      const results = filterObjects('Von Colorado', searchKeys, objects);
       expect(results).toEqual([objectOne]);
     });
 
-    it('filters based on partial match of multiple words', function() {
-      let results = filterObjects('Do Tru Co', searchKeys, objects);
+    it('filters based on partial match of multiple words', () => {
+      const results = filterObjects('Do Tru Co', searchKeys, objects);
       expect(results).toEqual([objectTwo]);
     });
 
-    it('filters based on nested params', function() {
-      let results = filterObjects('Brown', searchKeys, objects);
+    it('filters based on nested params', () => {
+      const results = filterObjects('Brown', searchKeys, objects);
       expect(results).toEqual([objectOne, objectThree]);
     });
 
-    it('matches even when words are in reverse order', function() {
-      let results = filterObjects('Trump Donald', searchKeys, objects);
+    it('matches even when words are in reverse order', () => {
+      const results = filterObjects('Trump Donald', searchKeys, objects);
       expect(results).toEqual([objectTwo]);
     });
 
-    it('ignores character case', function() {
-      let results = filterObjects('vOn MiLlEr', searchKeys, objects);
+    it('ignores character case', () => {
+      const results = filterObjects('vOn MiLlEr', searchKeys, objects);
       expect(results).toEqual([objectOne]);
     });
 
-    it('ignores basic grammar in content being searched', function() {
-      let results = filterObjects('bobs', searchKeys, objects);
+    it('ignores basic grammar in content being searched', () => {
+      const results = filterObjects('bobs', searchKeys, objects);
       expect(results).toEqual([objectThree]);
     });
 
-    it('ignores basic grammar in searchTerm', function() {
-      let results = filterObjects('V-o.\'n', searchKeys, objects);
+    it('ignores basic grammar in searchTerm', () => {
+      const results = filterObjects('V-o.\'n', searchKeys, objects);
       expect(results).toEqual([objectOne]);
     });
   });

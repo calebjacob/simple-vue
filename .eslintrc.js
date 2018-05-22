@@ -29,6 +29,7 @@ module.exports = {
       }
     ],
     'no-param-reassign': ['off'],
+    'no-plusplus': ['off'],
     'no-use-before-define': ['error', {
         functions: false
       }
