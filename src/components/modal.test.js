@@ -122,13 +122,17 @@ describe('component - modal', () => {
   describe('methods.focusFirstInput()', () => {
     let firstInput;
 
-    beforeEach(() => {
+    beforeEach((done) => {
       wrapper.vm.open();
 
-      firstInput = wrapper.vm.$el.querySelector('#first');
-      jest.spyOn(firstInput, 'focus');
+      wrapper.vm.$nextTick(() => {
+        firstInput = wrapper.vm.$el.querySelector('#first');
+        jest.spyOn(firstInput, 'focus');
 
-      wrapper.vm.focusFirstInput();
+        wrapper.vm.focusFirstInput();
+
+        done();
+      });
     });
 
     it('first input after the default modal close button is focused', () => {
