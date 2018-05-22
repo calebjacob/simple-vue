@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p class="foo">asdf</p>
     <router-view/>
   </div>
 </template>
