@@ -25,7 +25,7 @@ function createWrapper(options) {
     template: options.template
   };
 
-  const wrapper = shallow(component, {
+  const wrapper = shallowMount(component, {
     localVue
   });
 

@@ -26,7 +26,7 @@ localVue.directive('entrapFocus', entrapFocus);
 // wrapper:
 
 function createWrapper() {
-  const wrapper = shallow(component, {
+  const wrapper = shallowMount(component, {
     localVue
   });
 

@@ -19,7 +19,7 @@ jest.mock('@/services/weather');
 // wrapper:
 
 function createWrapper() {
-  const wrapper = shallow(home, {});
+  const wrapper = shallowMount(home, {});
 
   return wrapper;
 }

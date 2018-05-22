@@ -21,4 +21,4 @@ Vue.config.warnHandler = () => {};
 
 global.createLocalVue = vueTestUtils.createLocalVue;
 global.mount = vueTestUtils.mount;
-global.shallow = vueTestUtils.shallow;
+global.shallowMount = vueTestUtils.shallowMount;

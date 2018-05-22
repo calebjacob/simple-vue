@@ -7,7 +7,7 @@ import otherPage from '@/components/other-page.vue';
 // wrapper:
 
 function createWrapper() {
-  const wrapper = shallow(otherPage, {});
+  const wrapper = shallowMount(otherPage, {});
 
   return wrapper;
 }

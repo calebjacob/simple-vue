@@ -20,7 +20,7 @@ function createWrapper() {
     </div>
   `;
 
-  const wrapper = shallow(modal, {
+  const wrapper = shallowMount(modal, {
     attachToDocument: true,
     propsData: {
       modalStyle: 'compact',

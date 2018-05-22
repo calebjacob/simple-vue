@@ -12,7 +12,7 @@ module.exports = {
   globals: {
     createLocalVue: true,
     mount: true,
-    shallow: true
+    shallowMount: true
   },
 
   plugins: ['jest'],

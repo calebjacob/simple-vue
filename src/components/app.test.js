@@ -7,7 +7,7 @@ import app from '@/components/app.vue';
 // wrapper:
 
 function createWrapper() {
-  const wrapper = shallow(app, {});
+  const wrapper = shallowMount(app, {});
 
   return wrapper;
 }

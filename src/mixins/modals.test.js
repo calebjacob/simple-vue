@@ -31,7 +31,7 @@ localVue.mixin(modals);
 // wrapper:
 
 function createWrapper() {
-  const wrapper = shallow(component, {
+  const wrapper = shallowMount(component, {
     localVue
   });
 

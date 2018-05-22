@@ -23,7 +23,7 @@ localVue.directive('dropDown', dropDown);
 // wrapper:
 
 function createWrapper() {
-  const wrapper = shallow(component, {
+  const wrapper = shallowMount(component, {
     localVue
   });
 

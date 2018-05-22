@@ -23,7 +23,7 @@ function createWrapper(options = {}) {
     </div>
   `;
 
-  const wrapper = shallow(validatedForm, {
+  const wrapper = shallowMount(validatedForm, {
     mocks: {
       $validator
     },
